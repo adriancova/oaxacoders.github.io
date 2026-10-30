@@ -70,6 +70,40 @@ enlaces_oficiales:
   - label: "Major League Hacking"
     url: "https://mlh.io/"
 
+# Bloques informativos — comida, accesibilidad, equipos, código de conducta, fotos.
+info_blocks:
+  - emoji: "🍽️"
+    title: "Comida"
+    body: |
+      Te invitamos la comida a las 14:30: habrá un platillo para todas las personas, además de café ilimitado durante todo el evento. ☕
+
+      Como el menú es único, si tienes alguna alergia o restricción alimentaria (vegetariano, vegano, etc.), te recomendamos traer algo que puedas comer con tranquilidad. Y si se te antoja algo más, la cafetería del coworking tiene su propio menú a la venta; eso corre por tu cuenta.
+  - emoji: "♿"
+    title: "Accesibilidad"
+    body: |
+      El espacio está en planta baja, pero el baño no es accesible.
+
+      Si necesitas algún ajuste para participar cómodamente, escríbenos antes del evento y haremos lo posible por apoyarte.
+  - emoji: "👥"
+    title: "Equipos"
+    body: |
+      Los equipos son de 4 personas; si no se completan, habrá algunos de 3. Puedes llegar con tu equipo o formarlo ahí, de 12:00 a 12:40.
+  - emoji: "🤝"
+    title: "Código de Conducta"
+    body: |
+      Este evento sigue el [Código de Conducta de MLH](https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md). Queremos un espacio seguro y respetuoso para todas las personas. No se tolera el acoso ni el abuso de ningún tipo, y esto aplica en todo el lugar y en todas las actividades del evento.
+
+      Si ves o vives alguna situación que te incomode:
+
+      - En sitio, acércate a **Hermes** (organizador) o a cualquier persona del equipo organizador.
+      - También puedes escribir a **incidents@mlh.io**.
+
+      Todos los reportes se tratan con confidencialidad.
+  - emoji: "📸"
+    title: "Fotos"
+    body: |
+      Tomaremos fotos durante el evento. Si prefieres no aparecer, pide un sticker de color en el registro y respetaremos tu decisión.
+
 # Aliados y patrocinadores — comunidades, empresas y proyectos que apoyan el evento.
 aliados:
   - name: "Nexis"

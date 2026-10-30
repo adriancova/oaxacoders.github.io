@@ -101,6 +101,9 @@
       .prose-sage p { line-height: 1.65; color: rgba(247, 247, 242, 0.88); }
       .prose-sage a { color: var(--color-hf-coral); text-decoration: underline; text-underline-offset: 3px; }
       .prose-sage strong { color: #f7f7f2; }
+      .prose-sage ul { list-style: disc; padding-left: 1.25rem; color: rgba(247, 247, 242, 0.88); }
+      .prose-sage ul li { line-height: 1.6; margin-top: 0.25rem; }
+      .prose-sage ul li::marker { color: var(--color-hf-mustard); }
     </style>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -448,6 +451,25 @@
             {% endfor %}
           </ul>
         </div>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- Info blocks (comida, accesibilidad, equipos, CoC, fotos, etc.) -->
+    {% if page.info_blocks and page.info_blocks.size > 0 %}
+    <section class="py-16 md:py-20 bg-hf-sage">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+        {% for block in page.info_blocks %}
+          <div class="bg-hf-sage-darker/60 border border-hf-cream/15 rounded-xl p-6 sm:p-8">
+            <div class="flex items-center gap-3 mb-4">
+              {% if block.emoji %}<span class="text-2xl sm:text-3xl" aria-hidden="true">{{ block.emoji }}</span>{% endif %}
+              <h2 class="font-display text-2xl sm:text-3xl text-hf-cream leading-none">{{ block.title }}</h2>
+            </div>
+            <div class="prose-sage text-base space-y-3">
+              {{ block.body | markdownify }}
+            </div>
+          </div>
+        {% endfor %}
       </div>
     </section>
     {% endif %}
