@@ -25,10 +25,12 @@ agenda:
     title: "Comida"
   - time: "16:45"
     title: "Cierre de entregas"
-  - time: "17:00"
-    title: "Presentación de proyectos"
-  - time: "17:45"
-    title: "Premiación y cierre"
+  - time: "17:00 - 17:35"
+    title: "Demos"
+  - time: "17:35 - 17:50"
+    title: "Deliberación"
+  - time: "17:50"
+    title: "Premiación"
 
 # Recursos — contenido tomado de hacktoberfest.com y mlh.io.
 recursos_intro: >-
