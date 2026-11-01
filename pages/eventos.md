@@ -7,8 +7,8 @@ description: Próximos meetups, talleres y hackathons de Oaxacoders — la comun
 
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
   <div class="mb-12">
-    <h1 class="text-3xl sm:text-4xl font-bold text-navy-700 mb-3">Eventos</h1>
-    <p class="text-gray-500 max-w-lg">Meetups, talleres y actividades de la comunidad Oaxacoders.</p>
+    <h1 class="text-3xl sm:text-4xl font-bold text-navy-700 dark:text-gray-100 mb-3">Eventos</h1>
+    <p class="text-gray-500 dark:text-gray-300 max-w-lg">Meetups, talleres y actividades de la comunidad Oaxacoders.</p>
   </div>
 
   {% assign now = site.time | date: "%Y-%m-%d" %}
@@ -31,18 +31,18 @@ description: Próximos meetups, talleres y hackathons de Oaxacoders — la comun
     <div class="text-center py-16">
       <img src="/assets/images/programmer.jpeg" alt="Chapulin programando"
            class="w-72 mx-auto rounded-2xl shadow-lg mb-8" />
-      <p class="text-gray-500 text-lg mb-2">No hay eventos programados por el momento.</p>
+      <p class="text-gray-500 dark:text-gray-300 text-lg mb-2">No hay eventos programados por el momento.</p>
       <p class="text-gray-400">
         Únete a nuestros canales de
-        <a href="{{ site.community.telegram }}" class="text-teal-500 hover:underline" target="_blank" rel="noopener">Telegram</a> o
-        <a href="{{ site.community.whatsapp }}" class="text-teal-500 hover:underline" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="{{ site.community.telegram }}" class="text-teal-500 dark:text-teal-300 hover:underline" target="_blank" rel="noopener">Telegram</a> o
+        <a href="{{ site.community.whatsapp }}" class="text-teal-500 dark:text-teal-300 hover:underline" target="_blank" rel="noopener">WhatsApp</a>
         para enterarte de los próximos eventos.
       </p>
     </div>
   {% endif %}
 
   <div class="mt-12 text-center">
-    <a href="/eventos/todos/" class="inline-flex items-center gap-2 text-teal-600 hover:text-teal-500 font-medium transition">
+    <a href="/eventos/todos/" class="inline-flex items-center gap-2 text-teal-600 dark:text-teal-300 hover:text-teal-500 dark:hover:text-teal-200 font-medium transition">
       Ver todos los eventos (pasados y futuros)
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
     </a>
