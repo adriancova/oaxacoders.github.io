@@ -1,0 +1,86 @@
+<style>
+  :root { color-scheme: light; background-color: #f9fafb; }
+  :root[data-theme="dark"] { color-scheme: dark; background-color: #030712; }
+
+  .theme-toggle {
+    display: inline-grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    color: #01065c;
+    cursor: pointer;
+  }
+  .theme-toggle[hidden] { display: none; }
+  .theme-toggle:hover { background: #eef7fb; }
+  .theme-toggle:focus-visible { outline: 3px solid #3e83a6; outline-offset: 3px; }
+  .theme-toggle svg { width: 1.25rem; height: 1.25rem; }
+  .theme-icon-sun { display: none; }
+  [data-theme="dark"] .theme-toggle { background: #1f2937; border-color: #4b5563; color: #dde1ff; }
+  [data-theme="dark"] .theme-toggle:hover { background: #374151; }
+  [data-theme="dark"] .theme-toggle:focus-visible { outline-color: #7bbdd9; }
+  [data-theme="dark"] .theme-icon-sun { display: block; }
+  [data-theme="dark"] .theme-icon-moon { display: none; }
+</style>
+<script>
+  (function () {
+    var storageKey = 'oaxacoders-theme';
+    var preference = null;
+    var systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function validTheme(value) {
+      return value === 'light' || value === 'dark';
+    }
+
+    try {
+      var saved = window.localStorage.getItem(storageKey);
+      if (validTheme(saved)) preference = saved;
+    } catch (error) {
+      // The toggle still works when storage is unavailable.
+    }
+
+    function applyTheme() {
+      var theme = preference || (systemTheme.matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (button) {
+        var label = theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+        button.setAttribute('aria-label', label);
+        button.setAttribute('title', label);
+      });
+    }
+
+    // Set the theme before the page and Tailwind render.
+    applyTheme();
+
+    document.addEventListener('DOMContentLoaded', function () {
+      applyTheme();
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (button) {
+        button.hidden = false;
+        button.addEventListener('click', function () {
+          preference = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          try {
+            window.localStorage.setItem(storageKey, preference);
+          } catch (error) {
+            // Keep the selection for this page even if it cannot be saved.
+          }
+          applyTheme();
+        });
+      });
+    });
+
+    systemTheme.addEventListener('change', function () {
+      if (!preference) applyTheme();
+    });
+
+    window.addEventListener('storage', function (event) {
+      if (event.key === storageKey || event.key === null) {
+        preference = validTheme(event.newValue) ? event.newValue : null;
+        applyTheme();
+      }
+    });
+  })();
+</script>
