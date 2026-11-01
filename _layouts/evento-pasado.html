@@ -2,32 +2,32 @@
 layout: default
 ---
 <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-  <a href="/blog/" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-teal-500 transition mb-8">
+  <a href="/blog/" class="inline-flex items-center gap-1 text-sm text-gray-400 hover:text-teal-500 dark:hover:text-teal-200 transition mb-8">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
     Eventos pasados
   </a>
 
   <header class="mb-10">
     {% if page.date_display %}
-      <p class="text-xs font-semibold uppercase tracking-wider text-accent-600 mb-3">{{ page.date_display }}</p>
+      <p class="text-xs font-semibold uppercase tracking-wider text-accent-600 dark:text-accent-400 mb-3">{{ page.date_display }}</p>
     {% endif %}
-    <h1 class="text-3xl sm:text-4xl font-bold text-navy-700 mb-5 leading-tight">{{ page.title }}</h1>
+    <h1 class="text-3xl sm:text-4xl font-bold text-navy-700 dark:text-gray-100 mb-5 leading-tight">{{ page.title }}</h1>
     <div class="flex flex-wrap gap-3">
       {% if page.time_display %}
-        <span class="inline-flex items-center gap-1.5 text-sm text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg">
+        <span class="inline-flex items-center gap-1.5 text-sm text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1.5 rounded-lg">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"/></svg>
           {{ page.time_display }}
         </span>
       {% endif %}
       {% if page.venue %}
-        <span class="inline-flex items-center gap-1.5 text-sm text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg">
+        <span class="inline-flex items-center gap-1.5 text-sm text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1.5 rounded-lg">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           {{ page.venue }}
         </span>
       {% endif %}
       {% if page.eventbrite_url %}
         <a href="{{ page.eventbrite_url }}" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-1.5 text-sm text-teal-700 bg-teal-50 px-3 py-1.5 rounded-lg hover:bg-teal-100 transition">
+           class="inline-flex items-center gap-1.5 text-sm text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-900/40 px-3 py-1.5 rounded-lg hover:bg-teal-100 dark:hover:bg-teal-800/60 transition">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           Eventbrite
         </a>
@@ -35,17 +35,17 @@ layout: default
     </div>
   </header>
 
-  <div class="prose prose-gray max-w-none mb-10 leading-relaxed text-gray-600">
+  <div class="prose prose-gray max-w-none mb-10 leading-relaxed text-gray-600 dark:text-gray-300">
     {{ content }}
   </div>
 
   {% if page.slides_url != "" and page.slides_url %}
     <section class="mb-10">
-      <h2 class="text-2xl font-bold text-navy-700 mb-4">Presentación</h2>
+      <h2 class="text-2xl font-bold text-navy-700 dark:text-gray-100 mb-4">Presentación</h2>
       {% if page.slides_type == "google-slides" %}
         <div class="relative w-full" style="padding-bottom: 56.25%;">
           <iframe src="{{ page.slides_url }}"
-                  class="absolute inset-0 w-full h-full rounded-xl border border-gray-200"
+                  class="absolute inset-0 w-full h-full rounded-xl border border-gray-200 dark:border-gray-800"
                   frameborder="0"
                   allowfullscreen="true"
                   mozallowfullscreen="true"
@@ -55,7 +55,7 @@ layout: default
       {% elsif page.slides_type == "pdf" %}
         <div class="relative w-full" style="padding-bottom: 75%;">
           <iframe src="{{ page.slides_url }}"
-                  class="absolute inset-0 w-full h-full rounded-xl border border-gray-200"
+                  class="absolute inset-0 w-full h-full rounded-xl border border-gray-200 dark:border-gray-800"
                   frameborder="0">
           </iframe>
         </div>
@@ -65,7 +65,7 @@ layout: default
 
   {% if page.fotos.size > 0 %}
     <section class="mb-10">
-      <h2 class="text-2xl font-bold text-navy-700 mb-4">Fotos</h2>
+      <h2 class="text-2xl font-bold text-navy-700 dark:text-gray-100 mb-4">Fotos</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {% for foto in page.fotos %}
           <figure class="group relative overflow-hidden rounded-lg cursor-pointer"
@@ -96,12 +96,12 @@ layout: default
 
   {% if page.recursos.size > 0 %}
     <section class="mb-10">
-      <h2 class="text-2xl font-bold text-navy-700 mb-4">Recursos</h2>
+      <h2 class="text-2xl font-bold text-navy-700 dark:text-gray-100 mb-4">Recursos</h2>
       <ul class="space-y-2">
         {% for recurso in page.recursos %}
           <li>
             <a href="{{ recurso.url }}" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2 text-teal-600 hover:text-teal-500 transition">
+               class="inline-flex items-center gap-2 text-teal-600 dark:text-teal-300 hover:text-teal-500 dark:hover:text-teal-200 transition">
               <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
               {{ recurso.titulo }}
             </a>
